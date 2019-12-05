@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1949b8e7c942477890cf86385f5c2823)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SherifGhoz/PushBots&amp;utm_campaign=Badge_Grade)
+
 # Front-end Engineer Challenge
 
 Welcome to PushBots interview process, here you'll be presented with a fairly simple challenge where you'll get to work with our stack and get a feel of how it is to work at PushBots.
