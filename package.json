@@ -10,7 +10,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "test": "jest",
+    "test-with-coverage": "jest --coverage && cat ./test/coverage/lcov.info | codacy-coverage"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
