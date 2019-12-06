@@ -1,4 +1,4 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1949b8e7c942477890cf86385f5c2823)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=SherifGhoz/PushBots&utm_campaign=Badge_Grade) [![Netlify Status](https://api.netlify.com/api/v1/badges/46f5c338-c69f-4c2a-ae91-2584dc3a446f/deploy-status)](https://app.netlify.com/sites/fervent-franklin-f14cd4/deploys)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1949b8e7c942477890cf86385f5c2823)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=SherifGhoz/PushBots&utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1949b8e7c942477890cf86385f5c2823)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=SherifGhoz/PushBots&utm_campaign=Badge_Coverage) [![Netlify Status](https://api.netlify.com/api/v1/badges/46f5c338-c69f-4c2a-ae91-2584dc3a446f/deploy-status)](https://app.netlify.com/sites/fervent-franklin-f14cd4/deploys)
 
 # Front-end Engineer Challenge
 
