@@ -9,6 +9,6 @@
 .logo-section {
   background-color: $primary-color;
   background-image: url(../static/logo.svg);
-  background-position: 3%;
+  background-position: 3% 3%;
 }
 </style>
