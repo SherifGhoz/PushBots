@@ -9,6 +9,7 @@
         label="Your e-mail address"
         required
         validate-on-blur
+        background-color="#e6f2f1"
       ></v-text-field>
 
       <v-text-field
@@ -18,6 +19,7 @@
         :rules="passwordRules"
         label="Password"
         required
+        background-color="#e6f2f1"
       ></v-text-field>
       <div class="help-login">
         <a href="#">Forgot your password?</a><br />
@@ -82,10 +84,6 @@ export default {
   margin: auto;
   width: 100%;
   max-width: 375px;
-}
-
-.v-text-field input {
-  background-color: #e6f2f1;
 }
 
 .help-login {
