@@ -25,7 +25,13 @@
         <a href="#">Forgot your password?</a><br />
         <a href="#">Don't have an account?</a>
       </div>
-      <v-btn type="submit" block :disabled="!valid" color="primary">
+      <v-btn
+        type="submit"
+        block
+        :disabled="!valid || loading"
+        :loading="loading"
+        color="primary"
+      >
         LOGIN
       </v-btn>
       <div class="ext-logins">
@@ -52,16 +58,13 @@ export default {
       (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
     ],
     password: '',
-    passwordRules: [(v) => !!v || 'Password is required']
+    passwordRules: [(v) => !!v || 'Password is required'],
+    loading: false
   }),
 
   methods: {
-    validate() {
-      if (this.$refs.form.validate()) {
-        this.snackbar = true
-      }
-    },
     async login() {
+      this.loading = true
       try {
         await this.$auth.loginWith('local', {
           data: {
@@ -70,8 +73,10 @@ export default {
           }
         })
         await this.$store.commit('alertMessage', ['success', 'Welcome!'])
+        this.loading = false
         this.$router.push('/')
       } catch (e) {
+        this.loading = false
         this.$store.commit('alertMessage', ['error', 'Wrong Email or Password'])
       }
     }
