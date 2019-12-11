@@ -3,6 +3,7 @@
     <v-toolbar dark color="primary">
       <v-app-bar-nav-icon color="white"></v-app-bar-nav-icon>
       <svg
+        class="mr-3"
         height="40"
         viewBox="0 0 88.75 103.22"
         width="50"
@@ -51,15 +52,17 @@
       </v-text-field>
 
       <v-spacer></v-spacer>
-      <v-btn text class="ma-1 d-none d-md-block">
-        <v-icon class="ma-1" large background-color="primary"
+      <v-btn text height="62" padding="10" class="d-none d-md-block">
+        <v-icon class="ma-1" size="35px" background-color="primary"
           >mdi-account-group</v-icon
         >
         {{ $auth.user.totalDevices }}
       </v-btn>
 
-      <v-btn text class="ma-1 d-none d-md-block">
-        <v-icon class="ma-1" large background-color="primary">mdi-apps</v-icon>
+      <v-btn text height="62" padding="10" class="d-none d-md-block">
+        <v-icon class="ma-1" size="35px" background-color="primary"
+          >mdi-apps</v-icon
+        >
         {{ $auth.user.totalApps }}
       </v-btn>
 
@@ -98,6 +101,13 @@
 
 <script>
 export default {
+  filters: {
+    capitalize(value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  },
   data() {
     return {
       languages: ['English', 'Francias', ' اللغة العربية']
@@ -107,13 +117,6 @@ export default {
     logout() {
       this.$auth.logout()
       this.$router.push('/login')
-    }
-  },
-  filters: {
-    capitalize(value) {
-      if (!value) return ''
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
     }
   }
 }
