@@ -51,8 +51,23 @@
       </v-text-field>
 
       <v-spacer></v-spacer>
-      <v-icon>mdi-account-group</v-icon>
-      <v-icon>mdi-apps</v-icon>
+
+      <v-icon class="ma-1" large>mdi-account-group</v-icon>
+      {{ $auth.user.totalDevices }}
+
+      <v-icon class="ma-1" large>mdi-apps</v-icon>
+      {{ $auth.user.totalApps }}
+
+      <div class="member">
+        {{ $auth.user.name }}
+        <v-chip small background-color="black">
+          <v-icon small color="white">mdi-crown</v-icon>
+          <span class="caption">{{ $auth.user.plan | capitalize }}</span>
+        </v-chip>
+      </div>
+      <v-avatar>
+        <img :src="$auth.user.avatar" :alt="$auth.user.name" />
+      </v-avatar>
       <v-btn icon>
         <v-menu bottom left>
           <template v-slot:activator="{ on }">
@@ -75,12 +90,21 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      languages: ['English', 'Francias', ' اللغة العربية']
+    }
   },
   methods: {
     logout() {
       this.$auth.logout()
       this.$router.push('/login')
+    }
+  },
+  filters: {
+    capitalize(value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
     }
   }
 }
@@ -92,5 +116,11 @@ svg path,
 svg polygon,
 svg circle {
   fill: white;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  margin: 0 12px;
 }
 </style>
