@@ -58,14 +58,14 @@
       <v-icon class="ma-1" large>mdi-apps</v-icon>
       {{ $auth.user.totalApps }}
 
-      <div class="member">
+      <div class="member d-none d-md-flex">
         {{ $auth.user.name }}
         <v-chip small background-color="black">
           <v-icon small color="white">mdi-crown</v-icon>
           <span class="caption">{{ $auth.user.plan | capitalize }}</span>
         </v-chip>
       </div>
-      <v-avatar>
+      <v-avatar class="d-none d-md-block">
         <img :src="$auth.user.avatar" :alt="$auth.user.name" />
       </v-avatar>
       <v-btn icon>
