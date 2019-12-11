@@ -56,11 +56,36 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/auth'
   ],
+  router: {
+    middleware: ['auth']
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseUrl: 'https://pushbots-fend-challenge.herokuapp.com/',
+    https: true
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: 'https://pushbots-fend-challenge.herokuapp.com/login',
+            method: 'post',
+            propertyName: 'token'
+          },
+          user: {
+            url: 'https://pushbots-fend-challenge.herokuapp.com/api/me',
+            method: 'get',
+            propertyName: false
+          },
+          logout: false
+        }
+      }
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

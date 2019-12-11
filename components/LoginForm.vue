@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-form ref="form" v-model="valid">
+    <v-form ref="form" v-model="valid" method="post" @submit.prevent="login">
       <v-text-field
         v-model="email"
         type="email"
@@ -23,7 +23,7 @@
         <a href="#">Forgot your password?</a><br />
         <a href="#">Don't have an account?</a>
       </div>
-      <v-btn block :disabled="!valid" color="primary">
+      <v-btn type="submit" block :disabled="!valid" color="primary">
         LOGIN
       </v-btn>
       <div class="ext-logins">
@@ -58,12 +58,26 @@ export default {
       if (this.$refs.form.validate()) {
         this.snackbar = true
       }
+    },
+    async login() {
+      try {
+        await this.$auth.loginWith('local', {
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        })
+        await this.$store.commit('alertMessage', ['success', 'Welcome!'])
+        this.$router.push('/')
+      } catch (e) {
+        this.$store.commit('alertMessage', ['error', 'Wrong Email or Password'])
+      }
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .v-form {
   margin: auto;
   width: 100%;

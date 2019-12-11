@@ -98,7 +98,8 @@ import LoginForm from '../components/LoginForm.vue'
 export default {
   components: {
     LoginForm
-  }
+  },
+  auth: 'guest'
 }
 </script>
 
@@ -123,6 +124,10 @@ svg {
   svg path,
   svg polygon {
     fill: $primary-color;
+  }
+
+  .loginform {
+    padding: 90px 30px;
   }
 }
 </style>
