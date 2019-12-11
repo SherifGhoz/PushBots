@@ -65,7 +65,7 @@
 
       <div class="member d-none d-md-flex">
         <span class="font-weight-medium">{{ $auth.user.name }}</span>
-        <v-chip small background-color="black">
+        <v-chip small color="black">
           <v-icon class="ml-1" small color="white">mdi-crown</v-icon>
           <span class="caption text-right">{{
             $auth.user.plan | capitalize
