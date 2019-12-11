@@ -51,23 +51,30 @@
       </v-text-field>
 
       <v-spacer></v-spacer>
+      <v-btn text class="ma-2">
+        <v-icon large background-color="primary">mdi-account-group</v-icon>
+        {{ $auth.user.totalDevices }}
+      </v-btn>
 
-      <v-icon class="ma-1" large>mdi-account-group</v-icon>
-      {{ $auth.user.totalDevices }}
-
-      <v-icon class="ma-1" large>mdi-apps</v-icon>
-      {{ $auth.user.totalApps }}
+      <v-btn text class="ma-2">
+        <v-icon large background-color="primary">mdi-apps</v-icon>
+        {{ $auth.user.totalApps }}
+      </v-btn>
 
       <div class="member d-none d-md-flex">
-        {{ $auth.user.name }}
+        <span class="font-weight-medium">{{ $auth.user.name }}</span>
         <v-chip small background-color="black">
-          <v-icon small color="white">mdi-crown</v-icon>
-          <span class="caption">{{ $auth.user.plan | capitalize }}</span>
+          <v-icon class="ml-1" small color="white">mdi-crown</v-icon>
+          <span class="caption text-right">{{
+            $auth.user.plan | capitalize
+          }}</span>
         </v-chip>
       </div>
+
       <v-avatar class="d-none d-md-block">
         <img :src="$auth.user.avatar" :alt="$auth.user.name" />
       </v-avatar>
+
       <v-btn icon>
         <v-menu bottom left>
           <template v-slot:activator="{ on }">
