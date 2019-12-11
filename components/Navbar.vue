@@ -51,13 +51,15 @@
       </v-text-field>
 
       <v-spacer></v-spacer>
-      <v-btn text class="ma-2">
-        <v-icon large background-color="primary">mdi-account-group</v-icon>
+      <v-btn text class="ma-1">
+        <v-icon class="ma-1" large background-color="primary"
+          >mdi-account-group</v-icon
+        >
         {{ $auth.user.totalDevices }}
       </v-btn>
 
-      <v-btn text class="ma-2">
-        <v-icon large background-color="primary">mdi-apps</v-icon>
+      <v-btn text class="ma-1">
+        <v-icon class="ma-1" large background-color="primary">mdi-apps</v-icon>
         {{ $auth.user.totalApps }}
       </v-btn>
 
