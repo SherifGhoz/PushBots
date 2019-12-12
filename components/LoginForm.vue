@@ -2,10 +2,10 @@
   <v-row>
     <v-form ref="form" v-model="valid" method="post" @submit.prevent="login">
       <v-text-field
-        v-model="email"
+        v-model="user.email"
         type="email"
         prepend-inner-icon="mail_outline"
-        :rules="emailRules"
+        :rules="rules.emailRules"
         label="Your e-mail address"
         required
         autofocus
@@ -14,10 +14,10 @@
       ></v-text-field>
 
       <v-text-field
-        v-model="password"
+        v-model="user.password"
         type="password"
         prepend-inner-icon="lock_outline"
-        :rules="passwordRules"
+        :rules="rules.passwordRules"
         label="Password"
         required
         background-color="#e6f2f1"
@@ -52,34 +52,27 @@
 <script>
 export default {
   data: () => ({
-    valid: false,
-    email: '',
-    emailRules: [
-      (v) => !!v || 'E-mail is required',
-      (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
-    ],
-    password: '',
-    passwordRules: [(v) => !!v || 'Password is required'],
-    loading: false
+    user: {
+      email: '',
+      password: ''
+    },
+    rules: {
+      emailRules: [
+        (v) => !!v || 'E-mail is required',
+        (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+      ],
+      passwordRules: [(v) => !!v || 'Password is required']
+    },
+    valid: false
   }),
-
+  computed: {
+    loading() {
+      return this.$store.getters['login/isLoading']
+    }
+  },
   methods: {
-    async login() {
-      this.loading = true
-      try {
-        await this.$auth.loginWith('local', {
-          data: {
-            email: this.email,
-            password: this.password
-          }
-        })
-        await this.$store.commit('alertMessage', ['success', 'Welcome!'])
-        this.loading = false
-        this.$router.push('/')
-      } catch (e) {
-        this.loading = false
-        this.$store.commit('alertMessage', ['error', 'Wrong Email or Password'])
-      }
+    login() {
+      this.$store.dispatch('login/login', this.user)
     }
   }
 }

@@ -1,30 +1,32 @@
 export const state = () => ({
-  alertActive: false,
-  alert: {
-    type: null,
-    color: null,
-    message: null
-  }
+  apps: [],
+  loading: true,
+  error: null
 })
 
-export const getters = {
-  loggedInUser(state) {
-    return state.auth.user
-  },
-  alert(state) {
-    return state.alert
+export const actions = {
+  loadApps({ state, commit }) {
+    this.$axios
+      .get('https://pushbots-fend-challenge.herokuapp.com/api/apps', {
+        params: {
+          take: 10,
+          skip: state.apps.length,
+          sortBy: 'title',
+          direction: 'desc'
+        }
+      })
+      .then((response) => {
+        commit('updateApps', response.data.data)
+        commit('changeLoadingState', false)
+      })
   }
 }
-
 export const mutations = {
-  alertMessage(state, [type, message]) {
-    state.alertActive = true
-    state.alert.type = type
-    state.alert.color = type === 'success' ? 'green' : 'red'
-    state.alert.message = message
+  updateApps(state, apps) {
+    state.apps = apps
   },
 
-  closeAlert(state) {
-    state.alertActive = false
+  changeLoadingState(state, loading) {
+    state.loading = loading
   }
 }

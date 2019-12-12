@@ -80,21 +80,23 @@
         <img :src="$auth.user.avatar" :alt="$auth.user.name" />
       </v-avatar>
 
-      <v-btn icon>
-        <v-menu bottom left>
-          <template v-slot:activator="{ on }">
-            <v-btn dark icon v-on="on">
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-          </template>
+      <client-only>
+        <v-btn icon>
+          <v-menu bottom left>
+            <template v-slot:activator="{ on }">
+              <v-btn dark icon v-on="on">
+                <v-icon>mdi-dots-vertical</v-icon>
+              </v-btn>
+            </template>
 
-          <v-list>
-            <v-list-item @click="logout">
-              <v-list-item-title>Logout</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </v-btn>
+            <v-list>
+              <v-list-item @click="logout">
+                <v-list-item-title>Logout</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-btn>
+      </client-only>
     </v-toolbar>
   </div>
 </template>
@@ -109,9 +111,7 @@ export default {
     }
   },
   data() {
-    return {
-      languages: ['English', 'Francias', ' اللغة العربية']
-    }
+    return {}
   },
   methods: {
     logout() {

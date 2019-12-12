@@ -1,34 +1,33 @@
 <template>
   <v-snackbar v-model="alertActive" :timeout="2000" :color="alert.color">
-    <v-icon v-if="alert.type === 'success'">mdi-account-star</v-icon>
-    <v-icon v-if="alert.type === 'error'">mdi-alert</v-icon>
+    <v-icon v-if="alert.color === 'green'">mdi-account-star</v-icon>
+    <v-icon v-if="alert.color === 'red'">mdi-alert</v-icon>
     {{ alert.message }}
     <v-btn dark text @click="closeAlert">
       <v-icon>mdi-close</v-icon>
     </v-btn>
   </v-snackbar>
 </template>
+
 <script>
 export default {
-  data() {
-    return {}
-  },
   computed: {
     alert() {
-      return this.$store.getters.alert
+      return this.$store.getters['login/alert']
     },
     alertActive: {
       get() {
-        return this.$store.state.alertActive
+        return this.$store.getters['login/alertActive']
       },
       set() {
-        this.$store.commit('closeAlert', [null, null, null])
+        this.closeAlert() // used by v-model when timeout, resetting alert props
       }
     }
   },
+
   methods: {
     closeAlert() {
-      this.$store.commit('closeAlert', [null, null, null])
+      this.$store.dispatch('login/closeAlert')
     }
   }
 }
