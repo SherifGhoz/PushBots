@@ -8,6 +8,7 @@
         :rules="emailRules"
         label="Your e-mail address"
         required
+        autofocus
         validate-on-blur
         background-color="#e6f2f1"
       ></v-text-field>
