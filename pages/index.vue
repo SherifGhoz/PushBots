@@ -13,6 +13,7 @@ import Navbar from '../components/Navbar.vue'
 import AppsNav from '../components/AppsNav.vue'
 import Apps from '../components/Apps.vue'
 export default {
+  middleware: 'auth',
   components: { Navbar, AppsNav, Apps }
 }
 </script>

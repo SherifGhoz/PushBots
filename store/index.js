@@ -1,32 +1,46 @@
 export const state = () => ({
   apps: [],
-  loading: true,
+  loading: false,
+  total: null,
   error: null
 })
 
 export const actions = {
   loadApps({ state, commit }) {
-    this.$axios
-      .get('https://pushbots-fend-challenge.herokuapp.com/api/apps', {
-        params: {
-          take: 10,
-          skip: state.apps.length,
-          sortBy: 'title',
-          direction: 'desc'
-        }
-      })
-      .then((response) => {
-        commit('updateApps', response.data.data)
-        commit('changeLoadingState', false)
-      })
+    if (!state.total || state.total > state.apps.length) {
+      commit('SET_LOADING_STATE', true)
+      this.$axios
+        .get('https://pushbots-fend-challenge.herokuapp.com/api/apps', {
+          params: {
+            take: 10,
+            skip: state.apps.length,
+            sortBy: 'title',
+            direction: 'desc'
+          }
+        })
+        .then((response) => {
+          commit('UPDATE_APPS', response.data.data)
+          commit('SET_TOTAL', response.data.total)
+          commit('SET_LOADING_STATE', false)
+        })
+        .catch((error) => commit('SET_ERROR', error))
+    }
   }
 }
 export const mutations = {
-  updateApps(state, apps) {
-    state.apps = apps
+  UPDATE_APPS(state, apps) {
+    state.apps = [...state.apps, ...apps]
   },
 
-  changeLoadingState(state, loading) {
+  SET_LOADING_STATE(state, loading) {
     state.loading = loading
+  },
+
+  SET_ERROR(state, error) {
+    state.error = error
+  },
+
+  SET_TOTAL(state, total) {
+    state.total = total
   }
 }

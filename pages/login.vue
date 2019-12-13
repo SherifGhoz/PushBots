@@ -96,10 +96,10 @@
 <script>
 import LoginForm from '../components/LoginForm.vue'
 export default {
+  auth: 'guest',
   components: {
     LoginForm
-  },
-  auth: 'guest'
+  }
 }
 </script>
 

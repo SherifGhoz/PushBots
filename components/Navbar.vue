@@ -53,26 +53,26 @@
 
       <v-spacer></v-spacer>
       <v-btn text height="62" padding="10" class="d-none d-md-block">
-        <v-icon class="ma-1" size="35px" background-color="primary"
-          >mdi-account-group</v-icon
-        >
-        {{ $auth.user.totalDevices }}
+        <v-icon class="ma-1" size="35px" background-color="primary">
+          mdi-account-group
+        </v-icon>
+        {{ $auth.user.totalDevices | formatNumber }}
       </v-btn>
 
       <v-btn text height="62" padding="10" class="d-none d-md-block">
         <v-icon class="ma-1" size="35px" background-color="primary"
           >mdi-apps</v-icon
         >
-        {{ $auth.user.totalApps }}
+        {{ $auth.user.totalApps | formatNumber }}
       </v-btn>
 
       <div class="member d-none d-md-flex">
         <span class="font-weight-medium">{{ $auth.user.name }}</span>
         <v-chip small color="black">
           <v-icon class="ml-1" small color="white">mdi-crown</v-icon>
-          <span class="caption text-right">{{
-            $auth.user.plan | capitalize
-          }}</span>
+          <span class="caption text-right">
+            {{ $auth.user.plan | capitalize }}
+          </span>
         </v-chip>
       </div>
 
@@ -103,20 +103,10 @@
 
 <script>
 export default {
-  filters: {
-    capitalize(value) {
-      if (!value) return ''
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
-    }
-  },
-  data() {
-    return {}
-  },
   methods: {
     logout() {
+      this.$router.push('/login') // to prevent 404 page
       this.$auth.logout()
-      this.$router.push('/login')
     }
   }
 }
