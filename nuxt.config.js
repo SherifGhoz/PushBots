@@ -58,10 +58,7 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    baseUrl: 'https://pushbots-fend-challenge.herokuapp.com/',
-    https: true
-  },
+  axios: {},
   auth: {
     strategies: {
       local: {
