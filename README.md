@@ -141,7 +141,7 @@ You can find them here [Imgur](https://imgur.com/a/QggfTA7)
 ### Nice to have
 
 -   [x] Great attention to accessibility and its rules following WCAG 2.1
--   [x] Unit testing with Jest (Kudos if you integrate it in your pipeline with Netlify).
+-   [] Unit testing with Jest (Kudos if you integrate it in your pipeline with Netlify).
 -   [x] [Netlify](https://netlify.com/) integration for your project and add its badge to the README.
 -   [x] Code quality checks like [Codacy](https://www.codacy.com/) and add its badge to the README.
 
