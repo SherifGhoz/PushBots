@@ -1,7 +1,10 @@
 <template>
   <div>
     <v-toolbar dark color="primary">
-      <v-app-bar-nav-icon color="white"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+        color="white"
+        aria-label="app bar nav icon"
+      ></v-app-bar-nav-icon>
       <svg
         class="mr-3"
         height="40"
@@ -52,14 +55,26 @@
       </v-text-field>
 
       <v-spacer></v-spacer>
-      <v-btn text height="62" padding="10" class="d-none d-md-block">
+      <v-btn
+        text
+        height="62"
+        padding="10"
+        class="d-none d-md-block"
+        aria-label="Total Devices"
+      >
         <v-icon class="ma-1" size="35px" background-color="primary">
           mdi-account-group
         </v-icon>
         {{ $auth.user.totalDevices | formatNumber }}
       </v-btn>
 
-      <v-btn text height="62" padding="10" class="d-none d-md-block">
+      <v-btn
+        text
+        height="62"
+        padding="10"
+        class="d-none d-md-block"
+        aria-label="Total Apps"
+      >
         <v-icon class="ma-1" size="35px" background-color="primary"
           >mdi-apps</v-icon
         >
@@ -81,10 +96,10 @@
       </v-avatar>
 
       <client-only>
-        <v-btn icon>
+        <v-btn icon aria-label="Account Menu">
           <v-menu bottom left>
             <template v-slot:activator="{ on }">
-              <v-btn dark icon v-on="on">
+              <v-btn dark aria-label="Account Menu" icon v-on="on">
                 <v-icon>mdi-dots-vertical</v-icon>
               </v-btn>
             </template>

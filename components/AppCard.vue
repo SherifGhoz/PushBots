@@ -17,10 +17,10 @@
 
       <div class="col-3 pa-0 mr-3 ml-auto">
         <div class="text-right">
-          <v-btn icon>
+          <v-btn icon aria-label="Share">
             <v-icon>mdi-share</v-icon>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon aria-label="Options">
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </div>
@@ -29,25 +29,25 @@
     <AppChart :data="app.chartData"></AppChart>
 
     <v-card-actions>
-      <v-btn icon>
+      <v-btn icon aria-label="Send">
         <v-icon>mdi-telegram</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon aria-label="History">
         <v-icon>mdi-history</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon aria-label="phone">
         <v-icon>mdi-cellphone-iphone</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon aria-label="Users">
         <v-icon>mdi-account-group</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon aria-label="Settings">
         <v-icon>mdi-settings</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon aria-label="Statistics">
         <v-icon>mdi-chart-histogram</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon aria-label="Tweet">
         <v-icon>mdi-twitter</v-icon>
       </v-btn>
     </v-card-actions>

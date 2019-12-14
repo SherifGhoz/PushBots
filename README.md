@@ -174,4 +174,6 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+### Accessibilty
+[x] Solved all critical issues
+`activeAxe()` to run vue-axe

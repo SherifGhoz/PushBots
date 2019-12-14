@@ -1,6 +1,11 @@
-<template>
+<template role="main">
   <v-content>
-    <a href="https://pushbots.netlify.com" target="_blank">
+    <a
+      href="https://pushbots.netlify.com"
+      target="_blank"
+      aria-label="Home Page"
+    >
+      <h1 class="sr-only">PushBots Login Page</h1>
       <svg
         width="140px"
         height="28px"

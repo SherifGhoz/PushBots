@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1 class="sr-only">Dashboard</h1>
     <Navbar />
     <v-container>
       <AppsNav />
