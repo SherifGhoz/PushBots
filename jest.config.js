@@ -14,5 +14,6 @@ module.exports = {
     '<rootDir>/components/**/*.vue',
     '<rootDir>/pages/**/*.vue'
   ],
-  coverageDirectory: './test/coverage'
+  coverageDirectory: './test/coverage',
+  setupFilesAfterEnv: ['jest-extended']
 }

@@ -9,9 +9,6 @@
 import Alert from '../components/Alert.vue'
 
 export default {
-  components: { Alert },
-  data() {
-    return {}
-  }
+  components: { Alert }
 }
 </script>

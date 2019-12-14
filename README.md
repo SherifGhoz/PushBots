@@ -175,5 +175,10 @@ $ yarn generate
 ```
 
 ### Accessibilty
-[x] Solved all critical issues
-`activeAxe()` to run vue-axe
+-   [x] Solved all critical issues
+
+you can use `activeAxe()` to run vue-axe, in development mode.
+
+### Testing
+-   [x] Integrate code-coverage with netlify pipeline
+-   [x] Applied some unit tests, and timeout before finishing others :(
