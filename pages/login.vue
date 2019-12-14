@@ -97,6 +97,18 @@
 import LoginForm from '../components/LoginForm.vue'
 export default {
   auth: 'guest',
+  head() {
+    return {
+      title: 'PushBots | Login',
+      meta: [
+        {
+          hid: 'login',
+          name: 'description',
+          content: 'Login Page'
+        }
+      ]
+    }
+  },
   components: {
     LoginForm
   }

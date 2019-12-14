@@ -13,7 +13,18 @@ import Navbar from '../components/Navbar.vue'
 import AppsNav from '../components/AppsNav.vue'
 import Apps from '../components/Apps.vue'
 export default {
-  middleware: 'auth',
+  head() {
+    return {
+      title: 'PushBots | Dashboard',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Dashboard of Apps'
+        }
+      ]
+    }
+  },
   components: { Navbar, AppsNav, Apps }
 }
 </script>
