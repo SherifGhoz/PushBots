@@ -13,7 +13,7 @@
     "test": "jest",
     "test:dev": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:send-coverage": "cat ./test/coverage/lcov.info | codacy-coverage"
+    "test:send-coverage": "jest --coverage && cat ./test/coverage/lcov.info | codacy-coverage"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"

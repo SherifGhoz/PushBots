@@ -180,5 +180,4 @@ $ yarn generate
 you can use `activeAxe()` to run vue-axe, in development mode.
 
 ### Testing
--   [x] Integrate code-coverage with netlify pipeline
 -   [x] Applied some unit tests, and timeout before finishing others :(
